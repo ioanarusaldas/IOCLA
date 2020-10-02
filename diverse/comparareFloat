@@ -1,0 +1,145 @@
+%include "io.inc"
+
+section .data
+
+    vect    db  1,2,3,9,5,6,7,8,9,10
+    nr      db  10
+    val     db  5
+    val1    dq  3.49
+    variabila   dd  0
+    
+    format db "%f", 10, 0
+
+section .bss
+
+section .text
+global CMAIN
+CMAIN:
+    ;write your code here
+    
+    push ebp
+    mov ebp, esp
+    
+    xor eax, eax
+    xor ebx, ebx
+    xor ecx, ecx
+    xor edx, edx
+    
+    mov eax, vect
+    mov bl, byte[nr]
+   
+    
+loop1:
+    inc ecx
+    mov al, byte[vect + ecx - 1]
+   ; PRINT_UDEC 2, al
+    cmp al, byte[val]
+    je  egale
+    cmp ecx, ebx
+    jne loop1
+    jmp b
+   
+egale:
+    inc edx
+    
+    cmp ecx, ebx
+    jne loop1
+   
+b:
+
+    PRINT_UDEC 4, edx
+    NEWLINE
+     
+    xor eax, eax
+    xor ebx, ebx
+    xor ecx, ecx
+    xor edx, edx
+    
+    mov eax, vect
+    
+loop2:
+    
+    inc ecx
+    mov al, byte[vect + ecx - 1]
+    cmp al, byte[val]
+    jge greater
+    jl  lower_equal
+    
+    
+ greater:
+ 
+    inc edx
+  
+    cmp cl, byte[nr]
+    jne loop2
+    jmp c
+    
+lower_equal:
+
+    inc ebx
+    cmp cl, byte[nr]
+    jne loop2
+    
+c:
+
+    PRINT_UDEC 4, edx
+    NEWLINE
+    PRINT_UDEC 4, ebx
+    NEWLINE
+    
+    fld qword [val1]
+    
+    sub esp, 8
+    fstp qword [esp]
+    push format
+    call printf
+    add esp, 12
+    
+    FLD QWORD[val1]
+    xor eax, eax
+    xor ebx, ebx
+    xor ecx, ecx
+    xor edx, edx
+    
+    
+   
+loop3:
+    mov al,byte [vect + ecx]
+    inc ecx
+   ; xor eax, eax
+
+    mov dword[variabila], eax
+    
+    
+    push eax
+    
+    ficom dword[variabila]
+    fstsw ax
+    fwait
+    sahf
+    pop eax
+    jb greater1
+    jge  lower_equal1
+    
+    
+ greater1:
+ 
+    inc edx
+  
+    cmp cl, byte[nr]
+    jne loop3
+    jmp exit
+    
+lower_equal1:
+
+    inc ebx
+    cmp cl, byte[nr]
+    jne loop3
+ 
+exit:   
+    PRINT_UDEC 4, edx
+    NEWLINE
+    PRINT_UDEC 4, ebx
+
+    leave
+    ret

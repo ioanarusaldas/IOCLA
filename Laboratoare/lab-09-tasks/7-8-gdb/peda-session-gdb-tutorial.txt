@@ -1,0 +1,6 @@
+break for
+  commands
+    print $eax
+    print $ecx
+  end
+
