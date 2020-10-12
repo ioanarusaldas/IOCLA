@@ -1,0 +1,38 @@
+Savu Ioana Rusalda- 325CB
+
+	TASK 1
+	In functia print imi afiseaza atat mesajul decriptat cat si linia la 
+care a fost gasit si cheia cu care a fost decriptat.Parcurg matricea de la 
+linia la care a fost gasit mesajul si decriptez fiecare pixel ,facand xor
+intre pixel si cheia.Dupa fiecare xor afisez caracterul gasit
+	In bruteforce_singlebyte_xor caut cuvantul "revient" si retin linia
+la care a fost gasit si cheia cu care a fost criptat.Cautarea o fac folosind fiecare numar pe un octet.Caut prima data caracterul 'r' iar apoi restul
+caracterelor .Daca am gasit cuvantul salvez cheia si linia in eax
+	
+	TASK2
+	In functia task_2 am realizat criptarea folosind o cheie predefinita.
+In rezolvarea taskului ma folosesc de taskul anterior pentru a determina linia la care se afla mesajul si cheia cu care e criptat.
+Decriptez matricea cu cheia gasita,scriu la linia urmatoare noul mesaj si 
+calculez noua cheie. Cu aceasta  cheie criptez matricea. Decriptarea si 
+criptarea o realizez facand xor intre fiecare pixel si cheie.
+	
+	TASK3
+	In functia morse_encrypt iau fiecare caracter din mesajul ce trebuie 
+criptat si verific carui caracter din alfabet ii corespunde.Dupa identificare 
+il codific in morse si il pun in imagine incepand de la byte-idul indicat.
+
+	TASK4
+	In rezolvarea acestui task ma folosesc de doua masti :masca 1 pentru a verifica valoarea ultimului bit si 128 pentru a verifica primul bit.
+Cu masca de 128 iau fiecare bit al fiecarui caracter din string shiftand-o
+la stanga pana masca devine 0.
+Cu masca 1 verific ultimul bit al fiecarui pixel pentru a determina ce operatia
+ce trebuie facuta pentru schimbarea acestuia(adunare,scadere).
+
+	TASK5
+	In acest task ma folosesc de masaca 1 pentru a determina valoarea 
+ultimului bit al fiecarui pixel.Salvez 8 astfel de valori consecutive pentru a forma un caracter.Pentru compunere ma folosesc de operatia de shiftare la stanga
+ si adunare.
+
+	TASK6
+	Tema a necesitat prea mult timp in realizarea fiecarui task astfel 
+incat nu am mai avut timp si de acest task.

@@ -1,0 +1,46 @@
+Savu Ioana Rusalda - 325CB
+
+TEMA 1 - Prefix AST
+
+	Implementarea contine 2 functii:
+		+functia atoi (converteste un string in numar)
+		+functia tree (parcurgerea recursiva a arborelui)
+
+FUNCTIA ATOI
+	Initial muta in registrul ebx adresa ultimului element adaugat in stiva.
+Functia contine mai multe label-uri utilizate in instructiunile de jump.
+	In label-ul "STRING" se stocheaza in registrul dl primul caracter din 
+string si se verifica daca este "-".
+	In label-ul "POZITIV" daca caracterul este cifra este convertit la int.
+	In label-ul "MINUS" numarul obtinut este inmultit cu -1 pentru a pastra
+semnul numarului citit ca si string.
+	In label-ul "END" se verifica daca strinugul citit reprezinta un numar 
+negativ.
+
+FUNCTIA TREE
+	Initial muta in registrul ebx adresa ultimului element adaugat in stiva.
+	In registrul dx este stocat primul element din string. Cu ajutorul
+registrului dl se verifica operatia ce urmeaza sa fie realizata.
+	Label-ul "VERIFY" verifica daca caracterul "-" provine de la un numar
+negativ sau de la operatia de scadere.
+	Label-ul "NUMBER" apeleaza functia de conversie a unui string in numar.
+	Label-ul "ADDITION" apeleaza recursiv functia tree atat pentru fiul
+stang cat si pentru fiul drept si realizeaza operatia de adunare cu rezultatul
+stocat in eax.
+	Label-ul "MULTIPLICATION" apeleaza recursiv functia tree atat pentru fiul
+stang cat si pentru fiuldrept si realizeaza operatia de inmultire cu rezultatul
+stocat in eax.
+	Label-ul "DECREASE" apeleaza recursiv functia tree atat pentru fiul
+stang cat si pentru fiuldrept si realizeaza operatia de scadere cu rezultatul
+stocat in eax.
+	Label-ul "DIVISION" apeleaza recursiv functia tree atat pentru fiul
+stang cat si pentru fiuldrept si realizeaza operatia de impartire cu rezultatul
+stocat in eax.
+
+FUNCTIA MAIN
+	In main se realizeaza apelul functiei tree.
+	
+	
+
+	
+
